@@ -1,16 +1,17 @@
 import { App, SSLApp } from 'uWebSockets.js';
 import { v4 as uuid } from 'uuid';
-import { AuthenticationError } from './AuthenticationError';
+import { AuthenticationError } from '../errors/AuthenticationError';
 import { wrapWithPromise, parseSocketMessage } from '../utils';
-import { SocketParseError } from './SocketParseError';
+import { SocketParseError } from '../errors/SocketParseError';
 import { SocketReplyError } from '../errors/SocketReplyError';
 
 class WebSocket {
+    #sockets = new Map();
+
     #interface;
-    #options = {};
-    #sockets;
-    #socket;
     #handlers;
+    #options;
+    #socket;
 
     constructor(options, isSSL) {
         this.#interface = isSSL
@@ -18,7 +19,6 @@ class WebSocket {
             : App;
 
         this.#options = options;
-        this.#sockets = new Map();
     }
 
     ws(path, behaviour) {
@@ -31,7 +31,6 @@ class WebSocket {
             open = () => {},
             ping = () => {},
             pong = () => {},
-
             ...socketOptions
         } = behaviour;
 
@@ -56,7 +55,6 @@ class WebSocket {
                 open: (...args) => this.#onSocketOpen(...args),
                 ping: (...args) => ping(...args),
                 pong: (...args) => pong(...args),
-
                 ...socketOptions,
             });
 
@@ -75,7 +73,6 @@ class WebSocket {
         data,
     ) {
         // TODO: Check backpressure, drop slow messages / connections
-
         return socket.send((messageID || '') + JSON.stringify([
             errorOrEvent,
             data,
@@ -151,6 +148,16 @@ class WebSocket {
 
         if (upgradeAborted)
             return;
+
+        if (closeReason) {
+            return res.upgrade({
+                closeReason,
+            },
+            secWebSocketKey,
+            secWebSocketProtocol,
+            secWebSocketExtensions,
+            context);
+        }
 
         if (upgrade) {
             return upgrade(res, req, context, {

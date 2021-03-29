@@ -1,4 +1,4 @@
-import { SocketParseError } from './classes/SocketParseError';
+import { SocketParseError } from './errors/SocketParseError';
 
 export const wrapWithPromise = (fn, ...args) => {
     return new Promise((resolve, reject) => {
@@ -65,7 +65,7 @@ export const parseSocketMessage = (message, lastMessageID) => {
     if (hasCallback && messageID <= lastMessageID)
         throw new SocketParseError('Attempted to reuse previous message ID');
 
-    if (typeof event !== 'string' || event.length < 3 || event.length > 64)
+    if (typeof event !== 'string' || event.length < 1 || event.length > 64)
         throw new SocketParseError('Invalid event');
 
     return [
