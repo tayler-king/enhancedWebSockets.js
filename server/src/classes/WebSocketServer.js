@@ -218,11 +218,11 @@ class WebSocketServer {
         const { message } = this.#handlers;
 
         if (!messageID)
-            return message(event, data);
+            return message(socket, event, data);
 
         socket.lastMessageID = messageID; // eslint-disable-line no-param-reassign
 
-        wrapWithPromise(message, event, data)
+        wrapWithPromise(message, socket, event, data)
             .then((data) => {
                 this.#onSocketMessageCallback({
                     messageID,
@@ -280,6 +280,10 @@ class WebSocketServer {
             event,
             data,
         );
+    }
+
+    publish(topic, event, data) {
+        return this.#socket.publish(topic, JSON.stringify([ event, data ]));
     }
 }
 
