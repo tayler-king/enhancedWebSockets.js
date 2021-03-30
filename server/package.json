@@ -1,9 +1,9 @@
 {
     "name": "ews-server",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "An abstraction layer built on top of uWebSockets.js to provide callbacks and authentication for Web Sockets",
     "main": "index.js",
-    "repository": "https://github.com/Kondax/enhancedWebSockets.js",
+    "repository": "https://github.com/Kondax/enhancedWebSockets.js/tree/main/server",
     "author": "Kondax <github@kondax.io>",
     "license": "MIT",
     "devDependencies": {
