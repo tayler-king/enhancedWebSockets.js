@@ -19,6 +19,7 @@
         "no-unused-expressions": "off",
         "consistent-return": "off",
         "arrow-body-style": "off",
+        "no-plusplus": "off",
         "no-shadow": "off",
         "indent": [ "error", 4 ],
         "curly": "off"

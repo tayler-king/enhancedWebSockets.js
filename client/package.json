@@ -1,0 +1,32 @@
+{
+    "name": "client",
+    "version": "1.0.0",
+    "description": "An abstraction layer built on top of uWebSockets.js to provide callbacks and authentication for Web Sockets",
+    "main": "index.js",
+    "repository": "https://github.com/Kondax/enhancedWebSockets.js",
+    "author": "Kondax <github@kondax.io>",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "^7.13.14",
+        "@babel/core": "^7.13.14",
+        "@babel/eslint-parser": "^7.13.14",
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-proposal-private-methods": "^7.13.0",
+        "@babel/plugin-transform-runtime": "^7.13.10",
+        "@babel/preset-env": "^7.13.12",
+        "babel-loader": "^8.2.2",
+        "eslint": "^7.23.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "webpack": "^5.28.0",
+        "webpack-cli": "^4.6.0"
+    },
+    "scripts": {
+        "build": "webpack",
+        "prepublish": "npm run build"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.13.10",
+        "eventemitter3": "^4.0.7"
+    }
+}

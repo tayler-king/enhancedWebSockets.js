@@ -5,7 +5,7 @@ import { wrapWithPromise, parseSocketMessage } from '../utils';
 import { SocketParseError } from '../errors/SocketParseError';
 import { SocketReplyError } from '../errors/SocketReplyError';
 
-class WebSocket {
+class WebSocketServer {
     #sockets = new Map();
 
     #interface;
@@ -57,6 +57,10 @@ class WebSocket {
                 pong: (...args) => pong(...args),
                 ...socketOptions,
             });
+
+        setInterval(() => {
+            this.#socket.publish('ping', '');
+        }, 3000);
 
         return {
             listen: (...args) => {
@@ -259,6 +263,7 @@ class WebSocket {
         this.#sockets
             .set(id, socket);
 
+        socket.subscribe('ping');
         open(socket);
     }
 
@@ -278,4 +283,4 @@ class WebSocket {
     }
 }
 
-export { WebSocket };
+export { WebSocketServer };
