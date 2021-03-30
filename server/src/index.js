@@ -1,5 +1,8 @@
 import { WebSocketServer } from './classes/WebSocketServer';
 
+export { AuthenticationError } from './errors/AuthenticationError';
+export { SocketReplyError } from './errors/SocketReplyError';
+
 export const App = (options = {}) => {
     return new WebSocketServer(options, false);
 };
