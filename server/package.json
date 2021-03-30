@@ -1,5 +1,5 @@
 {
-    "name": "server",
+    "name": "ews-server",
     "version": "1.0.0",
     "description": "An abstraction layer built on top of uWebSockets.js to provide callbacks and authentication for Web Sockets",
     "main": "index.js",
@@ -20,7 +20,7 @@
     },
     "scripts": {
         "build": "babel ./src -d ./dist",
-        "prepublish": "npm run build"
+        "prepublishOnly": "npm run build"
     },
     "dependencies": {
         "@babel/runtime": "^7.13.10",
