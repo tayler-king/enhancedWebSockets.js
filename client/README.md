@@ -43,8 +43,8 @@ socket.on('close', event => {
 });
 
 // Or use socket.onmessage = (event, data) => {};
-socket.on('event', data => {
-    console.log(`Received socket message with event ${ event }, data ${ data }`);
+socket.on('someEvent', data => {
+    console.log(`Received socket event 'someEvent', data ${ data }`);
 })
 ```
 
