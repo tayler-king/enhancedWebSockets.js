@@ -107,11 +107,16 @@ a callback so that your code doesn't break if a malicious or broken client doesn
 Messages also contain named events, which are accessed through the following:
 
 ```js
-message(socket, event, data, callback) {
-    // Even if the client hasn't specified a callback,
-    // you can still call callback(err, data)
+message(socket, event[, data[, callback]]) {
+    switch(event) {
+        case ...:
+            break;
+    }
 }
 ```
+
+**You must check if `callback` is defined prior to invoking the callback or
+returning a `SocketReplyError`.**
 
 You can either return a promise to trigger the callback handler or invoke the `callback` function
 yourself. If you wish to reply an error, either call `callback(error)` or throw a `SocketReplyError`
