@@ -28,6 +28,9 @@ class WebSocketClient extends EventEmitter {
             data,
         ] = parseSocketMessage(encoded);
 
+        if(!messageID && [ 'open', 'close', 'error' ].includes(errorOrEvent))
+            return;
+
         // If there's a messageID, it means the message
         // is a callback. errorOrEvent is an error.
         if (messageID) {
