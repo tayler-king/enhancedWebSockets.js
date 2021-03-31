@@ -106,6 +106,7 @@ class WebSocketServer {
                         socket,
                         messageID,
                         error.message,
+                        error.data
                     );
                 }
 
