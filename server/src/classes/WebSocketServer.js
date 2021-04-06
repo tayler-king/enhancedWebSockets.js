@@ -8,6 +8,8 @@ import { SocketReplyError } from '../errors/SocketReplyError';
 class WebSocketServer {
     #sockets = new Map();
 
+    #disallowedOrigins;
+    #allowedOrigins
     #interface;
     #handlers;
     #options;
@@ -33,6 +35,23 @@ class WebSocketServer {
             pong = () => {},
             ...socketOptions
         } = behaviour;
+
+        const {
+            disallowedOrigins,
+            allowedOrigins
+        } = socketOptions;
+
+        if(allowedOrigins) {
+            this.#allowedOrigins = Array.isArray(allowedOrigins) ?
+                allowedOrigins :
+                [ allowedOrigins ];
+        }
+
+        if(disallowedOrigins) {
+            this.#disallowedOrigins = Array.isArray(disallowedOrigins) ?
+                disallowedOrigins :
+                [ disallowedOrigins ];
+        }
 
         this.#handlers = {
             authentication,
@@ -131,9 +150,23 @@ class WebSocketServer {
             upgradeAborted = true;
         });
 
+        const origin = req.getHeader('origin');
         const secWebSocketKey = req.getHeader('sec-websocket-key');
         const secWebSocketProtocol = req.getHeader('sec-websocket-protocol');
         const secWebSocketExtensions = req.getHeader('sec-websocket-extensions');
+
+        if(
+            (this.#allowedOrigins && !this.#allowedOrigins.includes(origin)) || 
+            (this.#disallowedOrigins && this.#disallowedOrigins.includes(origin))
+        ) {
+            return res.upgrade({
+                closeReason: 'Connected from disallowed origin'
+            },
+            secWebSocketKey,
+            secWebSocketProtocol,
+            secWebSocketExtensions,
+            context);
+        }
 
         if (authentication) {
             // If you want to disallow unauthenticated connections, throw

@@ -18,6 +18,11 @@ import { App, AuthenticationError, SocketReplyError } from 'ews-server';
 
 const app = App()
     .ws('/*', {
+        // Both optional, allows whitelisting/blacklisting specific origins from
+        // connecting. By default, all origins are allowed
+        disallowedOrigins: [ 'https://app.local', 'http://socket.example.com' ],
+        allowedOrigins: 'https://localhost:3000',
+
         // Socket authentication can be asynchronous or synchronous
         authentication(token) {
             // Perform your socket authentication here, based on the string
@@ -82,6 +87,19 @@ const app = App()
 ```
 
 ## Key differences to uWebSockets.js
+### Origin blacklisting/whitelisting
+Since WebSockets don't have the ability to provide CORS headers to the browser, origin verification
+has to happen on the server.
+
+By default, connections from all origins are allowed. If you'd like to operate a whitelist, provide
+allowed origins to `allowedOrigins` in the `ws()` object. If you'd like to operate a blacklist,
+provide disallowed origins to `disallowedOrigins` in the `ws()` object.
+
+You can use both if you would like to, but it is redundant. You can either pass a single domain as a
+string or an array of domains.
+
+Origin verification is performed prior to the authentication handler being called.
+
 ### Authentication handler
 This library supports an authentication string being sent with the initial WebSocket upgrade request,
 by using the `sec-websocket-protocol` header. By sending the authentication string in this header you
