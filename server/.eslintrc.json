@@ -18,8 +18,10 @@
         "lines-between-class-members": [ "error", "always", { "exceptAfterSingleLine": true } ],
         "no-unused-expressions": "off",
         "consistent-return": "off",
+        "no-return-assign": "off",
         "arrow-body-style": "off",
         "no-plusplus": "off",
+        "no-console": "off",
         "no-shadow": "off",
         "indent": [ "error", 4 ],
         "curly": "off"

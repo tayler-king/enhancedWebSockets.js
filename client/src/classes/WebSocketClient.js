@@ -2,18 +2,97 @@ import EventEmitter from 'eventemitter3';
 import { parseSocketMessage } from '../utils';
 
 class WebSocketClient extends EventEmitter {
+    #options = {
+        __deprecatedEventStructure: false,
+        maxReconnectInterval: 30000,
+        maxReconnectAttempts: 0,
+        reconnectInterval: 1000,
+        timeoutInterval: 2000,
+        reconnectDecay: 1.5,
+        reconnect: false,
+    };
+
+    #reconnect = {
+        attemptNumber: 0,
+        timeout: false,
+    };
+
+    #hasForceClosed = false;
     #lastMessageID = 0;
     #callbacks = new Map();
-    #webSocket;
+    #webSocket = false;
 
-    constructor(url, token) {
+    #token;
+    #url;
+
+    constructor(url, token, options) {
         super();
 
-        this.#webSocket = new WebSocket(url, token);
+        if (options)
+            this.#options = { ...this.#options, ...options };
+
+        this.#token = token;
+        this.#url = url;
+
+        this.#createConnection();
+    }
+
+    #createConnection() {
+        console.debug(`Attempting new WebSocket connection to ${this.#url}`);
+
+        if (this.#webSocket) {
+            this.#webSocket.onmessage = undefined;
+            this.#webSocket.onclose = undefined;
+            this.#webSocket.onerror = undefined;
+            this.#webSocket.onopen = undefined;
+        }
+
+        this.#webSocket = new WebSocket(this.#url, this.#token);
         this.#webSocket.onmessage = (...args) => this.#onSocketMessage(...args);
         this.#webSocket.onclose = (...args) => this.#onSocketClose(...args);
         this.#webSocket.onerror = (...args) => this.#onSocketError(...args);
         this.#webSocket.onopen = (...args) => this.#onSocketOpen(...args);
+    }
+
+    #attemptReconnection() {
+        let { attemptNumber } = this.#reconnect;
+
+        const {
+            maxReconnectInterval,
+            maxReconnectAttempts,
+            reconnectInterval,
+            timeoutInterval,
+            reconnectDecay,
+        } = this.#options;
+
+        attemptNumber++;
+
+        if (attemptNumber === maxReconnectAttempts) {
+            console.debug(`Maximum connection attempts (${maxReconnectAttempts}) reached`);
+
+            return this.#reconnect = {
+                attemptNumber: 0,
+                timeout: false,
+            };
+        }
+
+        const delay = Math.min(
+            reconnectInterval * (reconnectDecay ** attemptNumber),
+            maxReconnectInterval,
+        );
+
+        console.debug(`Attempting reconnection #${attemptNumber} to WebSocket, delaying ${delay}ms`);
+
+        setTimeout(() => {
+            this.#createConnection();
+
+            this.#reconnect.timeout = setTimeout(() => {
+                console.debug('Failed to establish connection in time, closing connection');
+                this.#webSocket.close();
+            }, timeoutInterval);
+        }, delay);
+
+        this.#reconnect.attemptNumber = attemptNumber;
     }
 
     #onSocketMessage(messageEvent) {
@@ -28,7 +107,7 @@ class WebSocketClient extends EventEmitter {
             data,
         ] = parseSocketMessage(encoded);
 
-        if(!messageID && [ 'open', 'close', 'error' ].includes(errorOrEvent))
+        if (!messageID && ['open', 'close', 'error'].includes(errorOrEvent))
             return;
 
         // If there's a messageID, it means the message
@@ -39,8 +118,10 @@ class WebSocketClient extends EventEmitter {
 
             const callback = this.#callbacks
                 .get(messageID);
-
-            callback(errorOrEvent, data);
+            
+            if (this.#options.__deprecatedEventStructure) // eslint-disable-line no-underscore-dangle
+                callback({ error: errorOrEvent, data });
+            else callback(errorOrEvent, data);
 
             return this.#callbacks
                 .delete(messageID);
@@ -48,19 +129,31 @@ class WebSocketClient extends EventEmitter {
 
         // If there's no messageID, it means the message
         // is an event. errorOrEvent is an event.
-        this.emit(errorOrEvent, data);
 
         if (this.onmessage)
             this.onmessage(errorOrEvent, data);
+        else this.emit(errorOrEvent, data);
     }
 
     #onSocketClose(closeEvent) {
+        clearTimeout(this.#reconnect.timeout);
+        console.debug('WebSocket connection lost');
+
         this.#callbacks.forEach((callback) => {
             callback('Socket closed');
         });
 
         this.#callbacks.clear();
         this.#lastMessageID = 0;
+
+        if (!this.#hasForceClosed && this.#options.reconnect) {
+            if (this.#reconnect.attemptNumber)
+                return this.#attemptReconnection();
+
+            this.#attemptReconnection();
+        }
+
+        this.#hasForceClosed = false;
 
         if (this.onclose)
             this.onclose(closeEvent);
@@ -74,6 +167,15 @@ class WebSocketClient extends EventEmitter {
     }
 
     #onSocketOpen(openEvent) {
+        clearTimeout(this.#reconnect.timeout);
+        console.debug('WebSocket connection established');
+
+        this.#hasForceClosed = false;
+        this.#reconnect = {
+            attemptNumber: 0,
+            timeout: false,
+        };
+
         if (this.onopen)
             this.onopen(openEvent);
         else this.emit('open', openEvent);
@@ -92,7 +194,11 @@ class WebSocketClient extends EventEmitter {
     }
 
     close(...args) {
-        return this.#webSocket.close(...args);
+        this.#hasForceClosed = true;
+        console.debug('Client manually closed WebSocket connection');
+
+        return this.#webSocket
+            .close(...args);
     }
 
     send(event, data, callback) {
