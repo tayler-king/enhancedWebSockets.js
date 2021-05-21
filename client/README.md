@@ -1,5 +1,5 @@
 # enhancedWebSockets.js Client
-_You can [view the server documentation here](https://github.com/Kondax/enhancedWebSockets.js/tree/main/server)._
+_You can [view the server documentation here](https://github.com/tayler-king/enhancedWebSockets.js/tree/main/server)._
 
 This is the client for a small abstraction layer built on top of
 [uWebSockets.js](https://github.com/uNetworking/uWebSockets.js) that provides

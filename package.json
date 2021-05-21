@@ -1,7 +1,7 @@
 {
     "private": true,
     "workspaces": [ "server", "client" ],
-    "repository": "https://github.com/Kondax/enhancedWebSockets.js",
-    "author": "Kondax <github@kondax.io>",
+    "repository": "https://github.com/tayler-king/enhancedWebSockets.js",
+    "author": "Tayler King <me@kingy.io>",
     "license": "MIT"
 }
