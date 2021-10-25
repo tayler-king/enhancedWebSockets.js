@@ -1,6 +1,6 @@
 {
     "name": "ews-server",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "An abstraction layer built on top of uWebSockets.js to provide callbacks and authentication for Web Sockets",
     "main": "index.js",
     "repository": "https://github.com/tayler-king/enhancedWebSockets.js/tree/main/server",
@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.13.10",
-        "uWebSockets.js": "uNetworking/uWebSockets.js#v19.0.0",
+        "uWebSockets.js": "uNetworking/uWebSockets.js#v20.1.0",
         "uuid": "^8.3.2"
     }
 }
