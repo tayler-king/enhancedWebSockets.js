@@ -1,5 +1,7 @@
 # enhancedWebSockets.js Client
-_You can [view the server documentation here](https://github.com/tayler-king/enhancedWebSockets.js/tree/main/server)._
+_You can [view the server documentation here](https://github.com/tayler-king/enhancedWebSockets.js/tree/main/packages/server)._
+
+**Install with `npm i @ewebsockets/client`**
 
 This is the client for a small abstraction layer built on top of
 [uWebSockets.js](https://github.com/uNetworking/uWebSockets.js) that provides
@@ -69,12 +71,12 @@ You can configure the library to automatically reconnect if the socket closes. T
 
 ```js
 {
-maxReconnectInterval: 30000, // Maximum delay between reconnection attempts
-maxReconnectAttempts: 0, // Maximum reconnection attempts before giving up (0 for infinite)
-reconnectInterval: 1000, // Initial delay between reconnection attempts
-timeoutInterval: 2000, // Maximum timeout before a connection is considered as failed
-reconnectDecay: 1.5, // Rate of increase in the reconnection delay
-reconnect: false // If the library should automatically reconnect or not
+    maxReconnectInterval: 30000, // Maximum delay between reconnection attempts
+    maxReconnectAttempts: 0, // Maximum reconnection attempts before giving up (0 for infinite)
+    reconnectInterval: 1000, // Initial delay between reconnection attempts
+    timeoutInterval: 2000, // Maximum timeout before a connection is considered as failed
+    reconnectDecay: 1.5, // Rate of increase in the reconnection delay
+    reconnect: false // If the library should automatically reconnect or not
 }
 ```
 
