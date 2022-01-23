@@ -1,7 +1,14 @@
 {
     "private": true,
-    "workspaces": [ "server", "client" ],
+    "workspaces": [
+        "packages/*"
+    ],
     "repository": "https://github.com/tayler-king/enhancedWebSockets.js",
-    "author": "Tayler King <me@kingy.io>",
-    "license": "MIT"
+    "author": "Tayler King <hello@taylerking.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "lerna": "^4.0.0"
+    },
+    "version": "1.0.7",
+    "name": "ews"
 }
