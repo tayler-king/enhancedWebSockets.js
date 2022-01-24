@@ -2,3 +2,5 @@ src
 .babelrc
 .eslintignore
 .eslintrc.json
+webpack.config.js
+README.md
