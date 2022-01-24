@@ -1,6 +1,6 @@
 {
     "name": "@ewebsockets/client",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "An abstraction layer built on top of uWebSockets.js to provide callbacks and authentication for Web Sockets",
     "main": "dist/bundle.js",
     "repository": "https://github.com/tayler-king/enhancedWebSockets.js/tree/main/client",
