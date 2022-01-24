@@ -2,4 +2,5 @@ import { WebSocketClient } from './classes/WebSocketClient';
 
 export { WebSocketClient };
 
-window.WebSocketClient = WebSocketClient;
+if(typeof window === 'function')
+    window.WebSocketClient = WebSocketClient;
