@@ -1,6 +1,6 @@
 import { WebSocketClient } from './classes/WebSocketClient';
 
-export { WebSocketClient };
-
-if(typeof window === 'function')
+if(typeof window !== 'undefined')
     window.WebSocketClient = WebSocketClient;
+
+export { WebSocketClient };
