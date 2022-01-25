@@ -4,3 +4,4 @@ src
 .eslintrc.json
 webpack.config.js
 README.md
+dist

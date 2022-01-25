@@ -1,11 +1,6 @@
 {
     "presets": [
-        [
-            "@babel/preset-env", {
-                "targets": "last 2 versions, node 12",
-                "modules": "commonjs"
-            }
-        ]
+        "@babel/preset-env"
     ],
     "plugins": [
         [ "@babel/plugin-proposal-private-methods", { "loose": true } ],
