@@ -1,4 +1,5 @@
 import EventEmitter from 'eventemitter3';
+import { w3cwebsocket } from 'websocket';
 import { parseSocketMessage } from '../utils';
 
 class WebSocketClient extends EventEmitter {
@@ -47,7 +48,7 @@ class WebSocketClient extends EventEmitter {
             this.#webSocket.onopen = undefined;
         }
 
-        this.#webSocket = new WebSocket(this.#url, this.#token);
+        this.#webSocket = new w3cwebsocket(this.#url, this.#token);
         this.#webSocket.onmessage = (...args) => this.#onSocketMessage(...args);
         this.#webSocket.onclose = (...args) => this.#onSocketClose(...args);
         this.#webSocket.onerror = (...args) => this.#onSocketError(...args);

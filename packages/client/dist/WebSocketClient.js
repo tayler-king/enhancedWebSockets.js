@@ -9,7 +9,6 @@
 		root["WebSocketClient"] = factory();
 })(self, function() {
 return /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/classes/WebSocketClient.js":
@@ -18,6 +17,7 @@ return /******/ (() => { // webpackBootstrap
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "WebSocketClient": () => (/* binding */ WebSocketClient)
@@ -34,7 +34,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/classPrivateFieldLooseKey */ "../../node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseKey.js");
 /* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! eventemitter3 */ "../../node_modules/eventemitter3/index.js");
 /* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(eventemitter3__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
+/* harmony import */ var websocket__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! websocket */ "../../node_modules/websocket/lib/browser.js");
+/* harmony import */ var websocket__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(websocket__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
 
 
 
@@ -53,6 +55,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -226,7 +229,7 @@ function _createConnection2() {
     (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onopen = undefined;
   }
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket] = new WebSocket((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _url)[_url], (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _token)[_token]);
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket] = new websocket__WEBPACK_IMPORTED_MODULE_11__.w3cwebsocket((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _url)[_url], (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _token)[_token]);
 
   (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onmessage = function () {
     var _classPrivateFieldLoo2;
@@ -293,7 +296,7 @@ function _onSocketMessage2(messageEvent) {
   var encoded = messageEvent.data;
   if (!encoded.length) return;
 
-  var _parseSocketMessage = (0,_utils__WEBPACK_IMPORTED_MODULE_11__.parseSocketMessage)(encoded),
+  var _parseSocketMessage = (0,_utils__WEBPACK_IMPORTED_MODULE_12__.parseSocketMessage)(encoded),
       _parseSocketMessage2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_parseSocketMessage, 3),
       messageID = _parseSocketMessage2[0],
       errorOrEvent = _parseSocketMessage2[1],
@@ -367,6 +370,7 @@ function _onSocketOpen2(openEvent) {
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "parseSocketMessage": () => (/* binding */ parseSocketMessage)
@@ -400,12 +404,58 @@ var parseSocketMessage = function parseSocketMessage(encoded) {
 
 /***/ }),
 
+/***/ "../../node_modules/es5-ext/global.js":
+/*!********************************************!*\
+  !*** ../../node_modules/es5-ext/global.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+var naiveFallback = function () {
+	if (typeof self === "object" && self) return self;
+	if (typeof window === "object" && window) return window;
+	throw new Error("Unable to resolve global `this`");
+};
+
+module.exports = (function () {
+	if (this) return this;
+
+	// Unexpected strict mode (may happen if e.g. bundled into ESM module)
+
+	// Fallback to standard globalThis if available
+	if (typeof globalThis === "object" && globalThis) return globalThis;
+
+	// Thanks @mathiasbynens -> https://mathiasbynens.be/notes/globalthis
+	// In all ES5+ engines global object inherits from Object.prototype
+	// (if you approached one that doesn't please report)
+	try {
+		Object.defineProperty(Object.prototype, "__global__", {
+			get: function () { return this; },
+			configurable: true
+		});
+	} catch (error) {
+		// Unfortunate case of updates to Object.prototype being restricted
+		// via preventExtensions, seal or freeze
+		return naiveFallback();
+	}
+	try {
+		// Safari case (window.__global__ works, but __global__ does not)
+		if (!__global__) return naiveFallback();
+		return __global__;
+	} finally {
+		delete Object.prototype.__global__;
+	}
+})();
+
+
+/***/ }),
+
 /***/ "../../node_modules/eventemitter3/index.js":
 /*!*************************************************!*\
   !*** ../../node_modules/eventemitter3/index.js ***!
   \*************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var has = Object.prototype.hasOwnProperty
@@ -746,12 +796,88 @@ if (true) {
 
 /***/ }),
 
+/***/ "../../node_modules/websocket/lib/browser.js":
+/*!***************************************************!*\
+  !*** ../../node_modules/websocket/lib/browser.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _globalThis;
+if (typeof globalThis === 'object') {
+	_globalThis = globalThis;
+} else {
+	try {
+		_globalThis = __webpack_require__(/*! es5-ext/global */ "../../node_modules/es5-ext/global.js");
+	} catch (error) {
+	} finally {
+		if (!_globalThis && typeof window !== 'undefined') { _globalThis = window; }
+		if (!_globalThis) { throw new Error('Could not determine global this'); }
+	}
+}
+
+var NativeWebSocket = _globalThis.WebSocket || _globalThis.MozWebSocket;
+var websocket_version = __webpack_require__(/*! ./version */ "../../node_modules/websocket/lib/version.js");
+
+
+/**
+ * Expose a W3C WebSocket class with just one or two arguments.
+ */
+function W3CWebSocket(uri, protocols) {
+	var native_instance;
+
+	if (protocols) {
+		native_instance = new NativeWebSocket(uri, protocols);
+	}
+	else {
+		native_instance = new NativeWebSocket(uri);
+	}
+
+	/**
+	 * 'native_instance' is an instance of nativeWebSocket (the browser's WebSocket
+	 * class). Since it is an Object it will be returned as it is when creating an
+	 * instance of W3CWebSocket via 'new W3CWebSocket()'.
+	 *
+	 * ECMAScript 5: http://bclary.com/2004/11/07/#a-13.2.2
+	 */
+	return native_instance;
+}
+if (NativeWebSocket) {
+	['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'].forEach(function(prop) {
+		Object.defineProperty(W3CWebSocket, prop, {
+			get: function() { return NativeWebSocket[prop]; }
+		});
+	});
+}
+
+/**
+ * Module exports.
+ */
+module.exports = {
+    'w3cwebsocket' : NativeWebSocket ? W3CWebSocket : null,
+    'version'      : websocket_version
+};
+
+
+/***/ }),
+
+/***/ "../../node_modules/websocket/lib/version.js":
+/*!***************************************************!*\
+  !*** ../../node_modules/websocket/lib/version.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ../package.json */ "../../node_modules/websocket/package.json").version;
+
+
+/***/ }),
+
 /***/ "../../node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js":
 /*!*************************************************************************!*\
   !*** ../../node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
   \*************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _arrayLikeToArray)
@@ -774,6 +900,7 @@ function _arrayLikeToArray(arr, len) {
   \***********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _arrayWithHoles)
@@ -790,6 +917,7 @@ function _arrayWithHoles(arr) {
   \******************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _assertThisInitialized)
@@ -810,6 +938,7 @@ function _assertThisInitialized(self) {
   \***********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _classCallCheck)
@@ -828,6 +957,7 @@ function _classCallCheck(instance, Constructor) {
   \***********************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _classPrivateFieldBase)
@@ -848,6 +978,7 @@ function _classPrivateFieldBase(receiver, privateKey) {
   \**********************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _classPrivateFieldKey)
@@ -865,6 +996,7 @@ function _classPrivateFieldKey(name) {
   \********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _createClass)
@@ -896,6 +1028,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   \***********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _defineProperty)
@@ -923,6 +1056,7 @@ function _defineProperty(obj, key, value) {
   \***********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _getPrototypeOf)
@@ -942,6 +1076,7 @@ function _getPrototypeOf(o) {
   \*****************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _inherits)
@@ -974,6 +1109,7 @@ function _inherits(subClass, superClass) {
   \*****************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _iterableToArrayLimit)
@@ -1016,6 +1152,7 @@ function _iterableToArrayLimit(arr, i) {
   \************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _nonIterableRest)
@@ -1032,6 +1169,7 @@ function _nonIterableRest() {
   \**********************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _possibleConstructorReturn)
@@ -1058,6 +1196,7 @@ function _possibleConstructorReturn(self, call) {
   \***********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
@@ -1079,6 +1218,7 @@ function _setPrototypeOf(o, p) {
   \**********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _slicedToArray)
@@ -1103,6 +1243,7 @@ function _slicedToArray(arr, i) {
   \***************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _typeof)
@@ -1125,6 +1266,7 @@ function _typeof(obj) {
   \***********************************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ _unsupportedIterableToArray)
@@ -1139,6 +1281,17 @@ function _unsupportedIterableToArray(o, minLen) {
   if (n === "Map" || n === "Set") return Array.from(o);
   if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return (0,_arrayLikeToArray_js__WEBPACK_IMPORTED_MODULE_0__["default"])(o, minLen);
 }
+
+/***/ }),
+
+/***/ "../../node_modules/websocket/package.json":
+/*!*************************************************!*\
+  !*** ../../node_modules/websocket/package.json ***!
+  \*************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"name":"websocket","description":"Websocket Client & Server Library implementing the WebSocket protocol as specified in RFC 6455.","keywords":["websocket","websockets","socket","networking","comet","push","RFC-6455","realtime","server","client"],"author":"Brian McKelvey <theturtle32@gmail.com> (https://github.com/theturtle32)","contributors":["Iñaki Baz Castillo <ibc@aliax.net> (http://dev.sipdoc.net)"],"version":"1.0.34","repository":{"type":"git","url":"https://github.com/theturtle32/WebSocket-Node.git"},"homepage":"https://github.com/theturtle32/WebSocket-Node","engines":{"node":">=4.0.0"},"dependencies":{"bufferutil":"^4.0.1","debug":"^2.2.0","es5-ext":"^0.10.50","typedarray-to-buffer":"^3.1.5","utf-8-validate":"^5.0.2","yaeti":"^0.0.6"},"devDependencies":{"buffer-equal":"^1.0.0","gulp":"^4.0.2","gulp-jshint":"^2.0.4","jshint-stylish":"^2.2.1","jshint":"^2.0.0","tape":"^4.9.1"},"config":{"verbose":false},"scripts":{"test":"tape test/unit/*.js","gulp":"gulp"},"main":"index","directories":{"lib":"./lib"},"browser":"lib/browser.js","license":"Apache-2.0"}');
 
 /***/ })
 
@@ -1211,8 +1364,9 @@ function _unsupportedIterableToArray(o, minLen) {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/

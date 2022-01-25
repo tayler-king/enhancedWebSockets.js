@@ -37,7 +37,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.13.10",
-        "eventemitter3": "^4.0.7"
+        "eventemitter3": "^4.0.7",
+        "websocket": "^1.0.34"
     },
     "publishConfig": {
         "access": "public"
