@@ -24,19 +24,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "../../node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "../../node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "../../node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "../../node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "../../node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "../../node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "../../node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/helpers/classPrivateFieldLooseBase */ "../../node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseBase.js");
-/* harmony import */ var _babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/classPrivateFieldLooseKey */ "../../node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseKey.js");
-/* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! eventemitter3 */ "../../node_modules/eventemitter3/index.js");
-/* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(eventemitter3__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var websocket__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! websocket */ "../../node_modules/websocket/lib/browser.js");
-/* harmony import */ var websocket__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(websocket__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "../../node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "../../node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "../../node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "../../node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "../../node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "../../node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "../../node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/classPrivateFieldLooseBase */ "../../node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseBase.js");
+/* harmony import */ var _babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/helpers/classPrivateFieldLooseKey */ "../../node_modules/@babel/runtime/helpers/esm/classPrivateFieldLooseKey.js");
+/* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! eventemitter3 */ "../../node_modules/eventemitter3/index.js");
+/* harmony import */ var eventemitter3__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(eventemitter3__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var websocket__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! websocket */ "../../node_modules/websocket/lib/browser.js");
+/* harmony import */ var websocket__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(websocket__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
+
 
 
 
@@ -52,7 +54,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_7__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6__["default"])(this, result); }; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_8__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_8__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_7__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -60,64 +62,64 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var _options = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("options");
+var _options = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("options");
 
-var _reconnect = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("reconnect");
+var _reconnect = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("reconnect");
 
-var _hasForceClosed = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("hasForceClosed");
+var _hasForceClosed = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("hasForceClosed");
 
-var _lastMessageID = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("lastMessageID");
+var _lastMessageID = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("lastMessageID");
 
-var _callbacks = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("callbacks");
+var _callbacks = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("callbacks");
 
-var _webSocket = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("webSocket");
+var _webSocket = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("webSocket");
 
-var _token = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("token");
+var _token = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("token");
 
-var _url = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("url");
+var _url = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("url");
 
-var _createConnection = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("createConnection");
+var _createConnection = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("createConnection");
 
-var _attemptReconnection = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("attemptReconnection");
+var _attemptReconnection = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("attemptReconnection");
 
-var _onSocketMessage = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("onSocketMessage");
+var _onSocketMessage = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("onSocketMessage");
 
-var _onSocketClose = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("onSocketClose");
+var _onSocketClose = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("onSocketClose");
 
-var _onSocketError = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("onSocketError");
+var _onSocketError = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("onSocketError");
 
-var _onSocketOpen = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_9__["default"])("onSocketOpen");
+var _onSocketOpen = /*#__PURE__*/(0,_babel_runtime_helpers_classPrivateFieldLooseKey__WEBPACK_IMPORTED_MODULE_10__["default"])("onSocketOpen");
 
 var WebSocketClient = /*#__PURE__*/function (_EventEmitter) {
-  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(WebSocketClient, _EventEmitter);
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__["default"])(WebSocketClient, _EventEmitter);
 
   var _super = _createSuper(WebSocketClient);
 
   function WebSocketClient(url, token, options) {
     var _this;
 
-    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__["default"])(this, WebSocketClient);
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_3__["default"])(this, WebSocketClient);
 
     _this = _super.call(this);
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _onSocketOpen, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _onSocketOpen, {
       value: _onSocketOpen2
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _onSocketError, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _onSocketError, {
       value: _onSocketError2
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _onSocketClose, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _onSocketClose, {
       value: _onSocketClose2
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _onSocketMessage, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _onSocketMessage, {
       value: _onSocketMessage2
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _attemptReconnection, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _attemptReconnection, {
       value: _attemptReconnection2
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _createConnection, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _createConnection, {
       value: _createConnection2
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _options, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _options, {
       writable: true,
       value: {
         __deprecatedEventStructure: false,
@@ -129,69 +131,69 @@ var WebSocketClient = /*#__PURE__*/function (_EventEmitter) {
         reconnect: false
       }
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _reconnect, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _reconnect, {
       writable: true,
       value: {
         attemptNumber: 0,
         timeout: false
       }
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _hasForceClosed, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _hasForceClosed, {
       writable: true,
       value: false
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _lastMessageID, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _lastMessageID, {
       writable: true,
       value: 0
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _callbacks, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _callbacks, {
       writable: true,
       value: new Map()
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _webSocket, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _webSocket, {
       writable: true,
       value: false
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _token, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _token, {
       writable: true,
       value: void 0
     });
-    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _url, {
+    Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _url, {
       writable: true,
       value: void 0
     });
-    if (options) (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _options)[_options] = _objectSpread(_objectSpread({}, (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _options)[_options]), options);
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _token)[_token] = token;
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _url)[_url] = url;
+    if ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_2__["default"])(token) === 'object') options = token;
+    if (options) (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _options)[_options] = _objectSpread(_objectSpread({}, (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _options)[_options]), options);
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _token)[_token] = token;
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _url)[_url] = url;
 
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), _createConnection)[_createConnection]();
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), _createConnection)[_createConnection]();
 
     return _this;
   }
 
-  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(WebSocketClient, [{
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_4__["default"])(WebSocketClient, [{
     key: "readyState",
     get: function get() {
-      return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].readyState;
+      return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].readyState;
     }
   }, {
     key: "bufferedAmount",
     get: function get() {
-      return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].bufferedAmount;
+      return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].bufferedAmount;
     }
   }, {
     key: "url",
     get: function get() {
-      return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].url;
+      return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].url;
     }
   }, {
     key: "close",
     value: function close() {
       var _classPrivateFieldLoo;
 
-      (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _hasForceClosed)[_hasForceClosed] = true;
-      console.debug('Client manually closed WebSocket connection');
-      return (_classPrivateFieldLoo = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket]).close.apply(_classPrivateFieldLoo, arguments);
+      (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _hasForceClosed)[_hasForceClosed] = true;
+      return (_classPrivateFieldLoo = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket]).close.apply(_classPrivateFieldLoo, arguments);
     }
   }, {
     key: "send",
@@ -203,65 +205,63 @@ var WebSocketClient = /*#__PURE__*/function (_EventEmitter) {
       }
 
       if (callback) {
-        var messageID = ++(0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _lastMessageID)[_lastMessageID];
+        var messageID = ++(0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _lastMessageID)[_lastMessageID];
 
-        (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _callbacks)[_callbacks].set(messageID, callback);
+        (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _callbacks)[_callbacks].set(messageID, callback);
 
-        return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].send(messageID + JSON.stringify([event, data]));
+        return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].send(messageID + JSON.stringify([event, data]));
       }
 
-      (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].send(JSON.stringify([event, data]));
+      (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].send(JSON.stringify([event, data]));
     }
   }]);
 
   return WebSocketClient;
-}((eventemitter3__WEBPACK_IMPORTED_MODULE_10___default()));
+}((eventemitter3__WEBPACK_IMPORTED_MODULE_11___default()));
 
 function _createConnection2() {
   var _this2 = this;
 
-  console.debug("Attempting new WebSocket connection to ".concat((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _url)[_url]));
-
-  if ((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket]) {
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onmessage = undefined;
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onclose = undefined;
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onerror = undefined;
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onopen = undefined;
+  if ((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket]) {
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onmessage = undefined;
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onclose = undefined;
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onerror = undefined;
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onopen = undefined;
   }
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket] = new websocket__WEBPACK_IMPORTED_MODULE_11__.w3cwebsocket((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _url)[_url], (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _token)[_token]);
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket] = new websocket__WEBPACK_IMPORTED_MODULE_12__.w3cwebsocket((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _url)[_url], (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _token)[_token]);
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onmessage = function () {
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onmessage = function () {
     var _classPrivateFieldLoo2;
 
-    return (_classPrivateFieldLoo2 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this2, _onSocketMessage))[_onSocketMessage].apply(_classPrivateFieldLoo2, arguments);
+    return (_classPrivateFieldLoo2 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2, _onSocketMessage))[_onSocketMessage].apply(_classPrivateFieldLoo2, arguments);
   };
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onclose = function () {
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onclose = function () {
     var _classPrivateFieldLoo3;
 
-    return (_classPrivateFieldLoo3 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this2, _onSocketClose))[_onSocketClose].apply(_classPrivateFieldLoo3, arguments);
+    return (_classPrivateFieldLoo3 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2, _onSocketClose))[_onSocketClose].apply(_classPrivateFieldLoo3, arguments);
   };
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onerror = function () {
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onerror = function () {
     var _classPrivateFieldLoo4;
 
-    return (_classPrivateFieldLoo4 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this2, _onSocketError))[_onSocketError].apply(_classPrivateFieldLoo4, arguments);
+    return (_classPrivateFieldLoo4 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2, _onSocketError))[_onSocketError].apply(_classPrivateFieldLoo4, arguments);
   };
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _webSocket)[_webSocket].onopen = function () {
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _webSocket)[_webSocket].onopen = function () {
     var _classPrivateFieldLoo5;
 
-    return (_classPrivateFieldLoo5 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this2, _onSocketOpen))[_onSocketOpen].apply(_classPrivateFieldLoo5, arguments);
+    return (_classPrivateFieldLoo5 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this2, _onSocketOpen))[_onSocketOpen].apply(_classPrivateFieldLoo5, arguments);
   };
 }
 
 function _attemptReconnection2() {
   var _this3 = this;
 
-  var attemptNumber = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect].attemptNumber;
+  var attemptNumber = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect].attemptNumber;
 
-  var _classPrivateFieldLoo6 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _options)[_options],
+  var _classPrivateFieldLoo6 = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _options)[_options],
       maxReconnectInterval = _classPrivateFieldLoo6.maxReconnectInterval,
       maxReconnectAttempts = _classPrivateFieldLoo6.maxReconnectAttempts,
       reconnectInterval = _classPrivateFieldLoo6.reconnectInterval,
@@ -271,32 +271,28 @@ function _attemptReconnection2() {
   attemptNumber++;
 
   if (attemptNumber === maxReconnectAttempts) {
-    console.debug("Maximum connection attempts (".concat(maxReconnectAttempts, ") reached"));
-    return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect] = {
+    return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect] = {
       attemptNumber: 0,
       timeout: false
     };
   }
 
   var delay = Math.min(reconnectInterval * Math.pow(reconnectDecay, attemptNumber), maxReconnectInterval);
-  console.debug("Attempting reconnection #".concat(attemptNumber, " to WebSocket, delaying ").concat(delay, "ms"));
   setTimeout(function () {
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this3, _createConnection)[_createConnection]();
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this3, _createConnection)[_createConnection]();
 
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this3, _reconnect)[_reconnect].timeout = setTimeout(function () {
-      console.debug('Failed to establish connection in time, closing connection');
-
-      (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(_this3, _webSocket)[_webSocket].close();
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this3, _reconnect)[_reconnect].timeout = setTimeout(function () {
+      (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(_this3, _webSocket)[_webSocket].close();
     }, timeoutInterval);
   }, delay);
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect].attemptNumber = attemptNumber;
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect].attemptNumber = attemptNumber;
 }
 
 function _onSocketMessage2(messageEvent) {
   var encoded = messageEvent.data;
   if (!encoded.length) return;
 
-  var _parseSocketMessage = (0,_utils__WEBPACK_IMPORTED_MODULE_12__.parseSocketMessage)(encoded),
+  var _parseSocketMessage = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.parseSocketMessage)(encoded),
       _parseSocketMessage2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_parseSocketMessage, 3),
       messageID = _parseSocketMessage2[0],
       errorOrEvent = _parseSocketMessage2[1],
@@ -306,16 +302,16 @@ function _onSocketMessage2(messageEvent) {
   // is a callback. errorOrEvent is an error.
 
   if (messageID) {
-    if (!(0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _callbacks)[_callbacks].has(messageID)) return;
+    if (!(0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _callbacks)[_callbacks].has(messageID)) return;
 
-    var callback = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _callbacks)[_callbacks].get(messageID);
+    var callback = (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _callbacks)[_callbacks].get(messageID);
 
-    if ((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _options)[_options].__deprecatedEventStructure) // eslint-disable-line no-underscore-dangle
+    if ((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _options)[_options].__deprecatedEventStructure) // eslint-disable-line no-underscore-dangle
       callback({
         error: errorOrEvent,
         data: data
       });else callback(errorOrEvent, data);
-    return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _callbacks)[_callbacks]["delete"](messageID);
+    return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _callbacks)[_callbacks]["delete"](messageID);
   } // If there's no messageID, it means the message
   // is an event. errorOrEvent is an event.
 
@@ -324,24 +320,23 @@ function _onSocketMessage2(messageEvent) {
 }
 
 function _onSocketClose2(closeEvent) {
-  clearTimeout((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect].timeout);
-  console.debug('WebSocket connection lost');
+  clearTimeout((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect].timeout);
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _callbacks)[_callbacks].forEach(function (callback) {
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _callbacks)[_callbacks].forEach(function (callback) {
     callback('Socket closed');
   });
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _callbacks)[_callbacks].clear();
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _callbacks)[_callbacks].clear();
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _lastMessageID)[_lastMessageID] = 0;
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _lastMessageID)[_lastMessageID] = 0;
 
-  if (!(0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _hasForceClosed)[_hasForceClosed] && (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _options)[_options].reconnect) {
-    if ((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect].attemptNumber) return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _attemptReconnection)[_attemptReconnection]();
+  if (!(0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _hasForceClosed)[_hasForceClosed] && (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _options)[_options].reconnect) {
+    if ((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect].attemptNumber) return (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _attemptReconnection)[_attemptReconnection]();
 
-    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _attemptReconnection)[_attemptReconnection]();
+    (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _attemptReconnection)[_attemptReconnection]();
   }
 
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _hasForceClosed)[_hasForceClosed] = false;
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _hasForceClosed)[_hasForceClosed] = false;
   if (this.onclose) this.onclose(closeEvent);else this.emit('close', closeEvent);
 }
 
@@ -350,10 +345,9 @@ function _onSocketError2(errorEvent) {
 }
 
 function _onSocketOpen2(openEvent) {
-  clearTimeout((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect].timeout);
-  console.debug('WebSocket connection established');
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _hasForceClosed)[_hasForceClosed] = false;
-  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_8__["default"])(this, _reconnect)[_reconnect] = {
+  clearTimeout((0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect].timeout);
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _hasForceClosed)[_hasForceClosed] = false;
+  (0,_babel_runtime_helpers_classPrivateFieldLooseBase__WEBPACK_IMPORTED_MODULE_9__["default"])(this, _reconnect)[_reconnect] = {
     attemptNumber: 0,
     timeout: false
   };
