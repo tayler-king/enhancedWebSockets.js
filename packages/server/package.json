@@ -3,7 +3,7 @@
     "version": "1.0.9",
     "description": "An abstraction layer built on top of uWebSockets.js to provide callbacks and authentication for Web Sockets",
     "main": "index.js",
-    "repository": "https://github.com/tayler-king/enhancedWebSockets.js/tree/main/server",
+    "repository": "https://github.com/tayler-king/enhancedWebSockets.js/tree/main/packages/server",
     "author": "Tayler King <hello@taylerking.com>",
     "license": "MIT",
     "devDependencies": {
