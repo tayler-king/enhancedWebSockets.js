@@ -29,6 +29,9 @@ class WebSocketClient extends EventEmitter {
     constructor(url, token, options) {
         super();
 
+        if (typeof token === 'object')
+            options = token;
+
         if (options)
             this.#options = { ...this.#options, ...options };
 
@@ -39,8 +42,6 @@ class WebSocketClient extends EventEmitter {
     }
 
     #createConnection() {
-        console.debug(`Attempting new WebSocket connection to ${this.#url}`);
-
         if (this.#webSocket) {
             this.#webSocket.onmessage = undefined;
             this.#webSocket.onclose = undefined;
@@ -69,8 +70,6 @@ class WebSocketClient extends EventEmitter {
         attemptNumber++;
 
         if (attemptNumber === maxReconnectAttempts) {
-            console.debug(`Maximum connection attempts (${maxReconnectAttempts}) reached`);
-
             return this.#reconnect = {
                 attemptNumber: 0,
                 timeout: false,
@@ -82,13 +81,10 @@ class WebSocketClient extends EventEmitter {
             maxReconnectInterval,
         );
 
-        console.debug(`Attempting reconnection #${attemptNumber} to WebSocket, delaying ${delay}ms`);
-
         setTimeout(() => {
             this.#createConnection();
 
             this.#reconnect.timeout = setTimeout(() => {
-                console.debug('Failed to establish connection in time, closing connection');
                 this.#webSocket.close();
             }, timeoutInterval);
         }, delay);
@@ -138,7 +134,6 @@ class WebSocketClient extends EventEmitter {
 
     #onSocketClose(closeEvent) {
         clearTimeout(this.#reconnect.timeout);
-        console.debug('WebSocket connection lost');
 
         this.#callbacks.forEach((callback) => {
             callback('Socket closed');
@@ -169,7 +164,6 @@ class WebSocketClient extends EventEmitter {
 
     #onSocketOpen(openEvent) {
         clearTimeout(this.#reconnect.timeout);
-        console.debug('WebSocket connection established');
 
         this.#hasForceClosed = false;
         this.#reconnect = {
@@ -196,7 +190,6 @@ class WebSocketClient extends EventEmitter {
 
     close(...args) {
         this.#hasForceClosed = true;
-        console.debug('Client manually closed WebSocket connection');
 
         return this.#webSocket
             .close(...args);
